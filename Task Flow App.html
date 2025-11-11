@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TaskFlow — Smart Daily Task Manager</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <main class="container">
+        <header class="app-header">
+            <div class="title">
+                <h1>TaskFlow</h1>
+                <p class="subtitle">Minimal daily task manager — vanilla JavaScript</p>
+            </div>
+            <div class="clock" aria-live="polite">
+                <div id="date">--</div>
+                <div id="time">--:--:--</div>
+            </div>
+        </header>
+
+        <section class="controls">
+            <form id="task-form" aria-label="Add new task">
+                <input id="task-title" type="text" placeholder="Task title" required maxlength="80">
+                <input id="task-date" type="date">
+                <button type="submit">Add Task</button>
+            </form>
+
+            <div class="filters" role="tablist" aria-label="Task filters">
+                <button class="filter active" data-filter="all">All</button>
+                <button class="filter" data-filter="today">Today</button>
+                <button class="filter" data-filter="upcoming">Upcoming</button>
+            </div>
+        </section>
+
+        <section class="task-list-section">
+            <ul id="task-list" class="task-list" aria-live="polite"></ul>
+            <p id="empty-msg" class="empty">No tasks yet. Add one above.</p>
+        </section>
+
+        <footer class="app-footer">
+            <small>Tasks saved locally in your browser. Built with vanilla JS.</small>
+        </footer>
+    </main>
+
+    <template id="task-template">
+        <li class="task-item" data-id="">
+            <label class="task-main">
+                <input type="checkbox" class="task-toggle">
+                <span class="task-title"></span>
+            </label>
+            <div class="task-meta">
+                <time class="task-date"></time>
+                <div class="task-actions">
+                    <button class="btn edit">Edit</button>
+                    <button class="btn delete">Delete</button>
+                </div>
+            </div>
+        </li>
+    </template>
+
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>
